@@ -29,7 +29,9 @@ async function pegaArquivo(caminhoDoArquivo){
 
 }
 
-pegaArquivo('./arquivos/texto1.md');
+module.exports = pegaArquivo;
+
+// pegaArquivo('./arquivos/texto1.md');
 
 // \[([^\]]*)\]\((https?:\/\/[^$#\s].[^\s]*)\)
 
