@@ -10,11 +10,12 @@ function extraiLinks(texto){
   while((temp = regex.exec(texto)) !== null){
     arrayResultados.push({ [temp[1]]: temp[2]})
   }
-  console.log(arrayResultados);
+
+  return arrayResultados.length === 0 ? 'Não há links' : arrayResultados;
 }
 
 function trataErro(erro){
-  throw new Error(chalk.red(erro.code, 'não há arquivo no caminho'));
+  throw new Error(chalk.red(erro.code, 'Não há arquivo no caminho'));
 }
 
 async function pegaArquivo(caminhoDoArquivo){
@@ -22,9 +23,9 @@ async function pegaArquivo(caminhoDoArquivo){
   const encoding = 'utf-8';
   try {
     const texto = await fs.promises.readFile(caminhoDoArquivo, encoding);
-    console.log(extraiLinks(texto));
+    return extraiLinks(texto);
   } catch(erro) {
-    trataErro(erro)
+    trataErro(erro);
   }
 
 }
