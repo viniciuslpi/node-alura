@@ -4,7 +4,6 @@ function manejaErros(erro) {
     throw new Error(erro.message)
 }
 
-
 async function checaStatus(arrayURLs) {
     try {
         const arrayStatus = await Promise.all(
